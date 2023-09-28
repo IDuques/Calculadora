@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <title> Calculadora </title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+             }
+        
+        .fundo{
+        background-image: linear-gradient(45deg,black,blue);
+            height: 100vh;
+            color: white;
+            font-family: arial, helvetica, sans-serif;
+        }
+        
+        .calculadora{
+            position: absolute;
+            background-color: black;
+            top: -50px;
+            left: 50%;
+            transform: translate(-50%,50%);
+            border-radius: 10px;
+            padding: 12px;
+             
+        }
+        
+        .botao{
+           width: 50px;
+            height: 50px;
+            font-size: 25px;
+            background-color: #4f4f4f;
+            cursor: pointer;
+            margin: 2px;
+            border: none;
+            color: white;
+            
+        }
+        .botao:hover{
+            background-color: #a9a9a9;
+        }
+        
+        #resultado{
+            background-color: white;
+            width: 220px;
+            height: 30px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 2px;
+        
+        }
+        
+        h1{
+            text-decoration: underline;
+        }
+        
+        </style>
+    </head>
+    
+   <body>
+         <div class="fundo">
+         <h1> Isaac Duques</h1>
+         <div class="calculadora">
+             <h1> CALCULADORA </h1>
+             <center>
+             <p id="resultado">   </p>
+             <table>
+                
+                 <tr>
+                     <td><button class="botao" onclick="clean()">C</button></td>
+                     <td><button class="botao" onclick="back()"><</button></td>
+                     <td><button class="botao" onclick="insert('/')">/</button></td>
+                     <td><button class="botao" onclick="insert('*')">x</button></td>
+                 </tr>
+                 
+                  <tr>
+                     <td><button class="botao" onclick="insert('7')">7</button></td>
+                     <td><button class="botao" onclick="insert('8')">8</button></td>
+                     <td><button class="botao" onclick="insert('9')">9</button></td>
+                     <td><button class="botao" onclick="insert('-')">-</button></td>
+                 </tr>
+                 
+                  <tr>
+                     <td><button class="botao" onclick="insert('4')">4</button></td>
+                     <td><button class="botao" onclick="insert('5')">5</button></td>
+                     <td><button class="botao" onclick="insert('6')">6</button></td>
+                     <td><button class="botao" onclick="insert('+')">+</button></td>
+                 </tr>
+                 
+                  <tr>
+                     <td><button class="botao" onclick="insert('1')">1</button></td>
+                     <td><button class="botao" onclick="insert('2')">2</button></td>
+                     <td><button class="botao" onclick="insert('3')">3</button></td>
+                     <td rowspan="2"><button class="botao" onclick = "calcular()" style="height: 105px";>=</button></td>
+                 </tr>
+                                
+                 <tr>
+                     <td colspan="2"><button class="botao" onclick="insert('0')" style="width: 105px";>0</button></td>
+                     <td><button class="botao" onclick="insert('.')">.</button></td>
+                 </tr>
+                                 
+                                  
+             </table>
+             </center>
+         </div>
+       </div>
+        
+         <script>
+             
+       function insert(num)
+             {
+                var numero = document.getElementById('resultado').innerHTML;
+                document.getElementById('resultado').innerHTML = numero + num;
+             }
+             function clean()
+             {
+              document.getElementById('resultado') .innerHTML = ""; 
+             }
+             
+             function back()
+             {
+               var resultado = document.getElementById('resultado') .innerHTML; 
+                 document.getElementById('resultado') .innerHTML = resultado.substring(0, resultado.length -1);
+             }
+             
+             function calcular()
+             {
+                 var resultado = document.getElementById('resultado').innerHTML;
+                 if(resultado)
+                     {
+                         document.getElementById('resultado').innerHTML = eval(resultado);
+                     }
+                 else{
+                     document.getElementById('resultado').innerHTML = "Nada..."
+                 }
+             }
+             
+       </script>
+    </body>
+</html>
